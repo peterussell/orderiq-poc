@@ -1,4 +1,4 @@
-import { Budget } from '../budgets/budget.model';
+import { Budget } from '../budget/budget.model';
 import { UserPrivileges } from './user-privileges.enum';
 
 export class User {

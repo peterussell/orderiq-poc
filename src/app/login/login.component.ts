@@ -20,11 +20,7 @@ export class LoginComponent implements OnInit {
   }
 
   onLogIn() {
-    console.log(`username: ${this.username} / password: ${this.password}`)
-    if (this.authService.authenticate(this.username, this.password)) {
-      this.router.navigate(['purchase-order']);
-    } else {
-      this.router.navigate(['']);
-    }
+    this.authService.authenticate(this.username, this.password);
+    this.router.navigate(['']);
   }
 }

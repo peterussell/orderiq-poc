@@ -12,20 +12,25 @@ import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AppRoutingModule } from './app-routing.module';
 
+// Services & Guards
 import { AuthService } from './auth.service';
-import { UserService } from './users/user.service';
+import { UserService } from './user/user.service';
 import { AuthGuard } from './auth-guard.service';
 import { POEditComponent } from './po-edit/po-edit.component';
+import { HeaderComponent } from './header/header.component';
+import { POCreateComponent } from './po-create/po-create.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     POListComponent,
     POItemComponent,
+    POCreateComponent,
     LoginComponent,
     HomeComponent,
     NotFoundComponent,
     POEditComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

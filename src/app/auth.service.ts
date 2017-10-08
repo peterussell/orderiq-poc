@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { UserService } from './users/user.service';
-import { User } from './users/user.model';
+import { UserService } from './user/user.service';
+import { User } from './user/user.model';
 
 @Injectable()
 export class AuthService {
@@ -16,8 +16,10 @@ export class AuthService {
   authenticate(username: string, password: string): User {
     const user = this.userService.getUserByUserName(username);
     if (user && user.password === password) {
+      this.isLoggedIn = true;
       return user;
     } else {
+      this.isLoggedIn = false;
       return null;
     }
   }
