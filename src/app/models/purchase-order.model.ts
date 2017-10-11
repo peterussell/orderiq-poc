@@ -10,12 +10,17 @@ export class PurchaseOrder {
   paidDate: Date;
   createdById: number;
   approvedById: number;
-  suppliers: Supplier[];
+  suppliers: Supplier[] = [];
   budget: Budget;
   orderNumber: number;
   isOpenOrder: boolean;
   coding: number;
   lineItems: LineItem[] = [];
+
+  static nextId: number = 1;
+  static getNextId() {
+    return PurchaseOrder.nextId++;
+  }
 
   // constructor(
   //   id: number, createdDate: date, createdBy: User, suppliers: Supplier[],
@@ -31,9 +36,10 @@ export class PurchaseOrder {
   //   }
   // )
 
-  constructor(id: number, createdDate: Date, createdById: number,
-              suppliers: Supplier[]) {
-    this.id = id;
+  constructor(createdDate: Date, createdById: number, supplier: Supplier) {
+    this.id = PurchaseOrder.getNextId();
+    this.createdDate = createdDate;
+    this.suppliers.push(supplier);
   }
 }
 

@@ -16,9 +16,11 @@ import { POCreateComponent } from './purchase-order/create/po-create.component';
 
 // Services, Guards, Routing
 import { AuthService } from './services/auth.service';
-import { UserService } from './services/user.service';
-import { PurchaseOrderService } from './services/purchase-order.service';
 import { AuthGuard } from './services/auth-guard.service';
+import { PurchaseOrderService } from './services/purchase-order.service';
+import { UserService } from './services/user.service';
+import { SupplierService } from './services/supplier.service';
+
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
@@ -38,7 +40,13 @@ import { AppRoutingModule } from './app-routing.module';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [AuthService, UserService, PurchaseOrderService, AuthGuard],
+  providers: [
+    AuthService,
+    AuthGuard,
+    PurchaseOrderService,
+    SupplierService,
+    UserService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

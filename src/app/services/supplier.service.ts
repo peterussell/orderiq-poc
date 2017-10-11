@@ -27,4 +27,8 @@ export class SupplierService {
   getSuppliers(): Supplier[] {
     return this.suppliers;
   }
+
+  getSupplier(id: number): Supplier {
+    return this.suppliers.find(s => s.id === id);
+  }
 }
