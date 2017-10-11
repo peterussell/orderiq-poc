@@ -5,26 +5,29 @@ import { User } from './user/user.model';
 
 @Injectable()
 export class AuthService {
-  isLoggedIn: boolean = false;
+  currentUser: User;
 
   constructor(private userService: UserService) {}
 
   isAuthenticated(): boolean {
-    return this.isLoggedIn;
+    return this.currentUser !== null;
   }
 
   authenticate(username: string, password: string): User {
     const user = this.userService.getUserByUserName(username);
     if (user && user.password === password) {
-      this.isLoggedIn = true;
-      return user;
+      this.currentUser = user;
     } else {
-      this.isLoggedIn = false;
-      return null;
+      this.currentUser = null;
     }
+    return this.currentUser;
   }
 
   logOut() {
-    this.isLoggedIn = false;
+    this.currentUser = null;
+  }
+
+  getCurrentUser() {
+    return this.currentUser;
   }
 }

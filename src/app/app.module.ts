@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 // Services & Guards
 import { AuthService } from './auth.service';
 import { UserService } from './user/user.service';
+import { PurchaseOrderService } from './purchase-order.service';
 import { AuthGuard } from './auth-guard.service';
 import { POEditComponent } from './po-edit/po-edit.component';
 import { HeaderComponent } from './header/header.component';
@@ -38,7 +39,7 @@ import { POCreateComponent } from './po-create/po-create.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [AuthService, UserService, AuthGuard],
+  providers: [AuthService, UserService, PurchaseOrderService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

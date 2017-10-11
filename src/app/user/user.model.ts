@@ -10,9 +10,14 @@ export class User {
   budgets: Budget[];
   privileges: UserPrivileges[] = [];
 
-  constructor(id: number, username: string, password: string, fullName: string,
+  static nextId: number = 1;
+  static getNextId(): number {
+    return User.nextId++;
+  }
+
+  constructor(username: string, password: string, fullName: string,
     isEnabled?: boolean) {
-    this.id = id;
+    this.id = User.getNextId();
     this.username = username;
     this.password = password;
     this.fullName = fullName;

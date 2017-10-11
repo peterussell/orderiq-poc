@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { PurchaseOrder } from '../purchase-order.model';
 
 @Component({
   selector: 'app-po-item',
@@ -6,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./po-item.component.css']
 })
 export class POItemComponent implements OnInit {
+  @Input() purchaseOrder: PurchaseOrder;
 
   constructor() { }
 
   ngOnInit() {
   }
-
 }
