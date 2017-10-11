@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { PurchaseOrder } from '../purchase-order.model';
+import { PurchaseOrder } from '../../../models/purchase-order.model';
 
 @Component({
   selector: 'app-po-item',

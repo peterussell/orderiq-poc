@@ -1,9 +1,9 @@
-import { User } from './user.model';
+import { User } from '../models/user.model';
 
 export class UserService {
   nextUserId: number = 1;
 
-  private users = [
+  private users: User[] = [
     new User('pr', '1', 'Pete Russell'),
     new User('mh', '1', 'Matt Hall'),
     new User('sf', '1', 'Sally Fox'),

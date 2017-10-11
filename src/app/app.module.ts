@@ -4,22 +4,22 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
 
+// View Components
 import { AppComponent } from './app.component';
-import { POListComponent } from './po-list/po-list.component';
-import { POItemComponent } from './po-list/po-item/po-item.component';
 import { LoginComponent } from './login/login.component';
+import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { AppRoutingModule } from './app-routing.module';
+import { POListComponent } from './purchase-order/list/po-list.component';
+import { POItemComponent } from './purchase-order/list/item/po-item.component';
+import { POCreateComponent } from './purchase-order/create/po-create.component';
 
-// Services & Guards
-import { AuthService } from './auth.service';
-import { UserService } from './user/user.service';
-import { PurchaseOrderService } from './purchase-order.service';
-import { AuthGuard } from './auth-guard.service';
-import { POEditComponent } from './po-edit/po-edit.component';
-import { HeaderComponent } from './header/header.component';
-import { POCreateComponent } from './po-create/po-create.component';
+// Services, Guards, Routing
+import { AuthService } from './services/auth.service';
+import { UserService } from './services/user.service';
+import { PurchaseOrderService } from './services/purchase-order.service';
+import { AuthGuard } from './services/auth-guard.service';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,6 @@ import { POCreateComponent } from './po-create/po-create.component';
     LoginComponent,
     HomeComponent,
     NotFoundComponent,
-    POEditComponent,
     HeaderComponent
   ],
   imports: [

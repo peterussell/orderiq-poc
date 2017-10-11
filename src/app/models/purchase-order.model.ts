@@ -1,6 +1,6 @@
-import { Budget } from '../budget/budget.model';
-import { Supplier } from '../supplier/supplier.model';
-import { User } from '../user/user.model';
+import { Budget } from './budget.model';
+import { Supplier } from './supplier.model';
+import { User } from './user.model';
 
 export class PurchaseOrder {
   id: number;

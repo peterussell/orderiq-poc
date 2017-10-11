@@ -1,4 +1,4 @@
-import { Supplier } from './supplier.model';
+import { Supplier } from '../models/supplier.model';
 
 export class SupplierService {
   suppliers: Supplier[] = [
@@ -23,4 +23,8 @@ export class SupplierService {
       '(03) 569-9232'
     )
   ];
+
+  getSuppliers(): Supplier[] {
+    return this.suppliers;
+  }
 }

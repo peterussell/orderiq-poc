@@ -3,13 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { POListComponent } from './po-list/po-list.component';
-import { POItemComponent } from './po-list/po-item/po-item.component';
-import { POCreateComponent } from './po-create/po-create.component';
-import { POEditComponent } from './po-edit/po-edit.component';
+import { POListComponent } from './purchase-order/list/po-list.component';
+import { POItemComponent } from './purchase-order/list/item/po-item.component';
+import { POCreateComponent } from './purchase-order/create/po-create.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
-import { AuthGuard } from './auth-guard.service';
+import { AuthGuard } from './services/auth-guard.service';
 
 const appRoutes: Routes = [
   // TODO: use child guards
@@ -20,7 +19,6 @@ const appRoutes: Routes = [
     { path: '', component: POListComponent, canActivate: [AuthGuard] },
     { path: 'new', component: POCreateComponent, canActivate: [AuthGuard] },
     { path: ':id', component: POItemComponent, canActivate: [AuthGuard] },
-    { path: ':id/edit', component: POEditComponent, canActivate: [AuthGuard] }
   ]},
   { path: 'login', component: LoginComponent},
   { path: 'not-found', component: NotFoundComponent },

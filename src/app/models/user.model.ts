@@ -1,4 +1,4 @@
-import { Budget } from '../budget/budget.model';
+import { Budget } from './budget.model';
 import { UserPrivileges } from './user-privileges.enum';
 
 export class User {
@@ -6,7 +6,7 @@ export class User {
   username: string;
   password: string; // should be hashed
   fullName: string;
-  isEnabled: boolean = true; // default
+  isEnabled: boolean = true;
   budgets: Budget[];
   privileges: UserPrivileges[] = [];
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PurchaseOrderService } from '../purchase-order.service';
-import { PurchaseOrder } from './purchase-order.model';
+import { PurchaseOrderService } from '../../services/purchase-order.service';
+import { PurchaseOrder } from '../../models/purchase-order.model';
 
 @Component({
   selector: 'app-po-list',
