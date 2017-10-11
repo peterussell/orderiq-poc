@@ -28,7 +28,7 @@ export class SupplierService {
     return this.suppliers;
   }
 
-  getSupplier(id: number): Supplier {
+  getSupplierById(id: number): Supplier {
     return this.suppliers.find(s => s.id === id);
   }
 }

@@ -36,10 +36,15 @@ export class PurchaseOrder {
   //   }
   // )
 
-  constructor(createdDate: Date, createdById: number, supplier: Supplier) {
+  constructor(
+    createdDate: Date, createdById: number, supplier: Supplier,
+    budget: Budget, isOpenOrder: boolean, lineItems: LineItem[]) {
     this.id = PurchaseOrder.getNextId();
     this.createdDate = createdDate;
     this.suppliers.push(supplier);
+    this.budget = budget;
+    this.isOpenOrder = isOpenOrder;
+    this.lineItems = lineItems.slice();
   }
 }
 
@@ -47,4 +52,10 @@ export class LineItem {
   description: string;
   quantity: number;
   unitPrice: number;
+
+  constructor(description: string, quantity: number, unitPrice: number) {
+    this.description = description;
+    this.quantity = quantity;
+    this.unitPrice = unitPrice;
+  }
 }

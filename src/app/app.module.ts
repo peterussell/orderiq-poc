@@ -17,6 +17,7 @@ import { POCreateComponent } from './purchase-order/create/po-create.component';
 // Services, Guards, Routing
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth-guard.service';
+import { BudgetService } from './services/budget.service';
 import { PurchaseOrderService } from './services/purchase-order.service';
 import { UserService } from './services/user.service';
 import { SupplierService } from './services/supplier.service';
@@ -43,6 +44,7 @@ import { AppRoutingModule } from './app-routing.module';
   providers: [
     AuthService,
     AuthGuard,
+    BudgetService,
     PurchaseOrderService,
     SupplierService,
     UserService,

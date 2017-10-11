@@ -15,7 +15,6 @@ export class POListComponent implements OnInit {
 
   ngOnInit() {
     this.purchaseOrders = this.purchaseOrderService.getPurchaseOrders();
-    debugger;
     console.log(this.purchaseOrders);
   }
 }
