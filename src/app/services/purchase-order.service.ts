@@ -17,8 +17,14 @@ export class PurchaseOrderService {
     this.createFakePurchaseOrders()
   }
 
-  getPurchaseOrders(): PurchaseOrder[] {
+  getAllPurchaseOrders(): PurchaseOrder[] {
     return this.purchaseOrders;
+  }
+
+  getPurchaseOrders(userId: number): PurchaseOrder[] {
+    let orders = this.purchaseOrders.filter(s => s.createdById === userId);
+    debugger;
+    return orders;
   }
 
   // TEMP: should call an external API or service

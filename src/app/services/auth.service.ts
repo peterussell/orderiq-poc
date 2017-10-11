@@ -7,16 +7,26 @@ import { User } from '../models/user.model';
 export class AuthService {
   currentUser: User;
 
+  private oiqTokenKey: string = 'oiq-token';
+  private oiqExpiresKey: string = 'oiq-expires';
+
   constructor(private userService: UserService) {}
 
   isAuthenticated(): boolean {
-    return this.currentUser !== null;
+    return this.getCurrentUser() !== null;
   }
 
   authenticate(username: string, password: string): User {
     const user = this.userService.getUserByUserName(username);
     if (user && user.password === password) {
       this.currentUser = user;
+
+      // Store user session in localStorage
+      const now: Date = new Date();
+      localStorage.setItem(this.oiqTokenKey, user.id.toString());
+      localStorage.setItem(this.oiqExpiresKey,
+        (now.setMinutes(now.getMinutes()+30)).toString());
+
     } else {
       this.currentUser = null;
     }
@@ -24,10 +34,13 @@ export class AuthService {
   }
 
   logOut() {
-    this.currentUser = null;
+    localStorage.removeItem(this.oiqTokenKey);
+    localStorage.removeItem(this.oiqExpiresKey);
   }
 
   getCurrentUser() {
-    return this.currentUser;
+    return this.userService.getUserById(
+      +localStorage.getItem(this.oiqTokenKey)
+    );
   }
 }

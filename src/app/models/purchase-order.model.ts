@@ -16,35 +16,24 @@ export class PurchaseOrder {
   isOpenOrder: boolean;
   coding: number;
   lineItems: LineItem[] = [];
+  orderStatus: OrderStatus;
 
   static nextId: number = 1;
   static getNextId() {
     return PurchaseOrder.nextId++;
   }
 
-  // constructor(
-  //   id: number, createdDate: date, createdBy: User, suppliers: Supplier[],
-  //   budget: Budget, isOpenOrder: boolean, coding: number, lineItems: LineItem[]) {
-  //     // this.id =  // TODO: need to have an id getter/setter service
-  //     this.createdDate = createdDate;
-  //     this.createdBy = createdBy;
-  //     this.suppliers = suppliers.slice();
-  //     this.budget = budget;
-  //     this.isOpenOrder = isOpenOrder;
-  //     this.coding = coding;
-  //     this.lineItems = lineItems.slice();
-  //   }
-  // )
-
   constructor(
     createdDate: Date, createdById: number, supplier: Supplier,
     budget: Budget, isOpenOrder: boolean, lineItems: LineItem[]) {
     this.id = PurchaseOrder.getNextId();
     this.createdDate = createdDate;
+    this.createdById = createdById;
     this.suppliers.push(supplier);
     this.budget = budget;
     this.isOpenOrder = isOpenOrder;
     this.lineItems = lineItems.slice();
+    this.orderStatus = OrderStatus.EnterDetails;
   }
 }
 
@@ -58,4 +47,13 @@ export class LineItem {
     this.quantity = quantity;
     this.unitPrice = unitPrice;
   }
+}
+
+enum OrderStatus {
+  EnterDetails,
+  WaitingForOrderNumber,
+  OrderGoods,
+  InvoiceReceived,
+  WaitingForPaymentApproval,
+  InvoicePaid
 }

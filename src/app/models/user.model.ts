@@ -1,5 +1,4 @@
 import { Budget } from './budget.model';
-import { UserPrivileges } from './user-privileges.enum';
 
 export class User {
   id: number;
@@ -28,4 +27,12 @@ export class User {
   addBudget(budget: Budget) {
     this.budgets.push(budget);
   }
+}
+
+export enum UserPrivileges {
+  ReadOnly,
+  User,
+  BudgetAdmin,
+  Admin,
+  SuperUser
 }

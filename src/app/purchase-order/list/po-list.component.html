@@ -1,5 +1,7 @@
 <div class="row">
   <div class="col-xs-12 col-sm-4">
-    <h4>[POListComponent]</h4>
+    <ul *ngFor="let po of purchaseOrders">
+      <li>{{ po.suppliers[0].name }}</li>
+    </ul>
   </div>
 </div>

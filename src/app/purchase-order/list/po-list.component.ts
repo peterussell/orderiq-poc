@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 import { PurchaseOrderService } from '../../services/purchase-order.service';
+import { AuthService } from '../../services/auth.service';
+
 import { PurchaseOrder } from '../../models/purchase-order.model';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-po-list',
@@ -9,12 +12,15 @@ import { PurchaseOrder } from '../../models/purchase-order.model';
   styleUrls: ['./po-list.component.css']
 })
 export class POListComponent implements OnInit {
-  purchaseOrders: PurchaseOrder[];
+  myPurchaseOrders: PurchaseOrder[];
 
-  constructor(private purchaseOrderService: PurchaseOrderService) { }
+  constructor(private purchaseOrderService: PurchaseOrderService,
+              private authService: AuthService) { }
 
   ngOnInit() {
-    this.purchaseOrders = this.purchaseOrderService.getPurchaseOrders();
-    console.log(this.purchaseOrders);
+    this.myPurchaseOrders = this.purchaseOrderService.getPurchaseOrders(
+      this.authService.getCurrentUser().id
+    );
+    console.log(this.myPurchaseOrders); // tmp
   }
 }
