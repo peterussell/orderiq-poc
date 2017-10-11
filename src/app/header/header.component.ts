@@ -21,12 +21,10 @@ export class HeaderComponent implements OnInit {
   }
 
   onLogInClick() {
-    console.log('log in');
     this.router.navigate(['/login']);
   }
 
   onLogOutClick() {
-    console.log('log out');
     this.authService.logOut();
     this.router.navigate(['/login']);
   }

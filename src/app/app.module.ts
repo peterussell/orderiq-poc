@@ -11,7 +11,6 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { POListComponent } from './purchase-order/list/po-list.component';
-import { POItemComponent } from './purchase-order/list/item/po-item.component';
 import { POCreateComponent } from './purchase-order/create/po-create.component';
 
 // Services, Guards, Routing
@@ -28,7 +27,6 @@ import { AppRoutingModule } from './app-routing.module';
   declarations: [
     AppComponent,
     POListComponent,
-    POItemComponent,
     POCreateComponent,
     LoginComponent,
     HomeComponent,

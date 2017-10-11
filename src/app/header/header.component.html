@@ -3,7 +3,9 @@
     <div class="navbar-header">
       <a [routerLink]="['']" class="navbar-brand">OrderIQ</a>
     </div>
-    <div class="collapse navbar-collapse">
+    <div
+      class="collapse navbar-collapse"
+      *ngIf="isLoggedIn()">
       <ul class="nav navbar-nav">
         <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
           <a routerLink="purchase-order">My Purchase Orders</a>

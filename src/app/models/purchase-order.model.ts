@@ -35,6 +35,41 @@ export class PurchaseOrder {
     this.lineItems = lineItems.slice();
     this.orderStatus = OrderStatus.EnterDetails;
   }
+
+  addAdditionalSupplier(supplier: Supplier): void {
+    this.suppliers.push(supplier);
+  }
+
+  getSupplierNames(): string {
+    return this.suppliers.map(s => { return s.name; }).join(', ');
+  }
+
+  getTotalValue(): number {
+    let total: number = 0;
+    this.lineItems.map(li => {
+      total += li.quantity * li.unitPrice;
+    });
+    return total;
+  }
+
+  getOrderStatus(): string {
+    switch (this.orderStatus) {
+      case OrderStatus.EnterDetails:
+        return "Enter Details";
+      case OrderStatus.WaitingForOrderNumber:
+        return "Waiting for Order Number";
+      case OrderStatus.OrderGoods:
+        return "Order Goods";
+      case OrderStatus.InvoiceReceived:
+        return "Invoice Received";
+      case OrderStatus.WaitingForPaymentApproval:
+        return "Waiting for Payment Approval";
+      case OrderStatus.InvoicePaid:
+        return "Invoice Paid";
+      default:
+        return "Unknown";
+    }
+  }
 }
 
 export class LineItem {

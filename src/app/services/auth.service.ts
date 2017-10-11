@@ -39,8 +39,10 @@ export class AuthService {
   }
 
   getCurrentUser() {
-    return this.userService.getUserById(
-      +localStorage.getItem(this.oiqTokenKey)
-    );
+    const userToken = localStorage.getItem(this.oiqTokenKey);
+    if (!userToken) {
+      return null;
+    }
+    return this.userService.getUserById(+userToken);
   }
 }

@@ -23,7 +23,6 @@ export class PurchaseOrderService {
 
   getPurchaseOrders(userId: number): PurchaseOrder[] {
     let orders = this.purchaseOrders.filter(s => s.createdById === userId);
-    debugger;
     return orders;
   }
 
@@ -52,7 +51,9 @@ export class PurchaseOrderService {
       this.supplierService.getSupplierById(2),
       this.budgetService.getBudgetById(4),
       true,
-      [] // TODO: Open orders shouldn't have line items (check this)
+      [
+        new LineItem('Open Order', 1, 2000) // TODO: represent open orders?
+      ]
     ));
     this.purchaseOrders.push(new PurchaseOrder(
       new Date(),
@@ -79,5 +80,10 @@ export class PurchaseOrderService {
         new LineItem('Paper wall chart', 3, 10.00)
       ]
     ));
+
+    // Add a second supplier to one PO for testing
+    this.purchaseOrders[0].addAdditionalSupplier(
+      this.supplierService.getSupplierById(2)
+    );
   }
 }

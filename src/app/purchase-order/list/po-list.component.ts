@@ -21,6 +21,5 @@ export class POListComponent implements OnInit {
     this.myPurchaseOrders = this.purchaseOrderService.getPurchaseOrders(
       this.authService.getCurrentUser().id
     );
-    console.log(this.myPurchaseOrders); // tmp
   }
 }

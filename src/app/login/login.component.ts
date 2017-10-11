@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit {
       this.loginForm.value.username,
       this.loginForm.value.password
     );
-    console.log(this.authService.isAuthenticated());
     this.loginForm.reset();
     this.router.navigate(['/']);
   }

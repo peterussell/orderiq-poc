@@ -1,7 +1,29 @@
 <div class="row">
-  <div class="col-xs-12 col-sm-4">
-    <ul *ngFor="let po of purchaseOrders">
-      <li>{{ po.suppliers[0].name }}</li>
-    </ul>
+  <div class="col-xs-12">
+    <h4>My Purchase Orders</h4>
+    <table class="table table-striped col-xs-12 col-lg-12">
+      <thead>
+        <tr>
+          <th>Created</th>
+          <th>Supplier</th>
+          <th class="text-right">Value</th>
+          <th class="text-center">Open Order</th>
+          <th class="text-center">Order #</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let po of myPurchaseOrders">
+          <td>{{ po.createdDate | date }}</td>
+          <td>{{ po.getSupplierNames() }}</td>
+          <td class="text-right">
+            {{ po.getTotalValue() | currency:'USD':true }}
+          </td>
+          <td class="text-center">{{ po.isOpenOrder ? "Yes" : "No" }}</td>
+          <td class="text-center">{{ po.orderNumber ? po.OrderNumber : "-" }}</td>
+          <td>{{ po.getOrderStatus() }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
