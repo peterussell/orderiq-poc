@@ -1,3 +1,7 @@
 input.ng-touched.ng-invalid {
   border: 1px solid red;
 }
+
+span.help-block.warning {
+  color: red;
+}

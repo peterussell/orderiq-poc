@@ -35,6 +35,10 @@
           </p>
         </div>
 
+        <span class="help-block warning" *ngIf="lastError">
+          {{ lastError }}
+        </span>
+
         <button
           class="btn btn-primary"
           type="submit"

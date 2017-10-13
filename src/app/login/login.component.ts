@@ -2,7 +2,7 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
-import { AuthService } from '../services/auth.service';
+import { AuthService, AuthResult } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +11,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginComponent implements OnInit {
   @ViewChild('f') loginForm: NgForm;
+  lastError: string;
 
   constructor(
     private authService: AuthService,
@@ -20,11 +21,20 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.authService.authenticate(
+
+    this.lastError = '';
+
+    const result: AuthResult = this.authService.authenticate(
       this.loginForm.value.username,
       this.loginForm.value.password
     );
+
     this.loginForm.reset();
-    this.router.navigate(['/']);
+
+    if (result.success) {
+      this.router.navigate(['/']);
+    } else {
+      this.lastError = result.error;
+    }
   }
 }
