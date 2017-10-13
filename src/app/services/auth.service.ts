@@ -20,14 +20,9 @@ export class AuthService {
     this.currentUser = null; // reset
     const user = this.userService.getUserByUserName(username);
 
-    // No user found
-    if (!user) {
-      return new AuthResult(false, 'User not found');
-    }
-
-    // Incorrect password
-    if (user.password !== password) {
-      return new AuthResult(false, 'Incorrect password');
+    // Failure
+    if (!user || user.password !== password) {
+      return new AuthResult(false, 'Incorrect username or password');
     }
 
     // Success

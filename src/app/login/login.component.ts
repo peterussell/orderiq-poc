@@ -29,8 +29,6 @@ export class LoginComponent implements OnInit {
       this.loginForm.value.password
     );
 
-    this.loginForm.reset();
-
     if (result.success) {
       this.router.navigate(['/']);
     } else {
