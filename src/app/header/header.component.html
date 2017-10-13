@@ -20,6 +20,7 @@
         </li>
         <ng-template #log_out>
           <li class="username">{{ getUserName() }}</li>
+          <li class="spacer"> | </li>
           <li>
             <a (click)="onLogOutClick()" style="cursor: pointer;">Log Out</a>
           </li>
