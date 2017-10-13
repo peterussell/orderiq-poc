@@ -19,6 +19,7 @@
           <a (click)="onLogInClick()" style="cursor: pointer;">Log In</a>
         </li>
         <ng-template #log_out>
+          <li class="username">{{ getUserName() }}</li>
           <li>
             <a (click)="onLogOutClick()" style="cursor: pointer;">Log Out</a>
           </li>

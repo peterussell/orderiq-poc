@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../services/auth.service';
+import { User } from '../models/user.model';
 
 @Component({
   selector: 'app-header',
@@ -9,11 +10,13 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  currentUser: User;
 
   constructor(private authService: AuthService,
               private router: Router) { }
 
   ngOnInit() {
+    this.currentUser = this.authService.getCurrentUser();
   }
 
   isLoggedIn(): boolean {
@@ -27,5 +30,10 @@ export class HeaderComponent implements OnInit {
   onLogOutClick() {
     this.authService.logOut();
     this.router.navigate(['/login']);
+  }
+
+  getUserName() {
+    const currentUser = this.authService.getCurrentUser();
+    return currentUser ? currentUser.getName() : '';
   }
 }
