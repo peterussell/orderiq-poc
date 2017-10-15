@@ -24,9 +24,7 @@ export class HeaderComponent implements OnInit {
   }
 
   isAdmin(): boolean {
-    if (!this.authService.isAuthenticated()) { return false };
-    return this.currentUser.isAdmin();
-
+    return this.authService.isAdmin();
   }
 
   onLogInClick() {

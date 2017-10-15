@@ -16,6 +16,14 @@ export class AuthService {
     return this.getCurrentUser() !== null;
   }
 
+  isAdmin(): boolean {
+    this.currentUser = this.getCurrentUser();
+    if (this.currentUser && this.currentUser.isAdmin()) {
+      return true;
+    }
+    return false;
+  }
+
   authenticate(username: string, password: string): AuthResult {
     this.currentUser = null; // reset
     const user = this.userService.getUserByUserName(username);
