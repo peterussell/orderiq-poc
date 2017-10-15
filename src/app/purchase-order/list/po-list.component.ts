@@ -18,7 +18,7 @@ export class POListComponent implements OnInit {
               private authService: AuthService) { }
 
   ngOnInit() {
-    this.myPurchaseOrders = this.purchaseOrderService.getPurchaseOrders(
+    this.myPurchaseOrders = this.purchaseOrderService.getPurchaseOrdersById(
       this.authService.getCurrentUser().id
     );
   }

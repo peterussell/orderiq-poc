@@ -7,13 +7,20 @@ import { POListComponent } from './purchase-order/list/po-list.component';
 import { POCreateComponent } from './purchase-order/create/po-create.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
+import { BudgetComponent } from './admin/budget/budget.component';
+import { SupplierComponent } from './admin/supplier/supplier.component';
+
 import { AuthGuard } from './services/auth-guard.service';
 
 const appRoutes: Routes = [
   // TODO: use child guards
-  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  // Admin
+  { path: 'admin', children: [
+    { path: 'budget', component: BudgetComponent },
+    { path: 'supplier', component: SupplierComponent }
+  ]},
 
-  // Working here: child paths don't seem to be working
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'purchase-order', canActivate: [AuthGuard], children: [
     { path: '', component: POListComponent, canActivate: [AuthGuard] },
     { path: 'new', component: POCreateComponent, canActivate: [AuthGuard] }

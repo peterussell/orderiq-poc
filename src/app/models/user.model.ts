@@ -3,7 +3,7 @@ import { Budget } from './budget.model';
 export class User {
   id: number;
   budgets: Budget[];
-  privileges: UserPrivileges[] = [];
+  privileges: UserPrivilege[] = [];
 
   static nextId: number = 1;
   static getNextId(): number {
@@ -17,7 +17,7 @@ export class User {
     public isEnabled?: boolean
   ) {
     this.id = User.getNextId();
-    this.privileges.push(UserPrivileges.User); // default
+    this.privileges.push(UserPrivilege.User); // default
   }
 
   addBudget(budget: Budget) {
@@ -27,9 +27,17 @@ export class User {
   getName(): string {
     return this.fullName ? this.fullName : this.username;
   }
+
+  isAdmin(): boolean {
+    return this.privileges.indexOf(UserPrivilege.Admin) !== -1;
+  }
+
+  addUserPrivilege(privilege: UserPrivilege) {
+    this.privileges.push(privilege);
+  }
 }
 
-export enum UserPrivileges {
+export enum UserPrivilege {
   ReadOnly,
   User,
   BudgetAdmin,

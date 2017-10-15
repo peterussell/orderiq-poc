@@ -1,4 +1,4 @@
-import { User } from '../models/user.model';
+import { User, UserPrivilege } from '../models/user.model';
 
 export class UserService {
   nextUserId: number = 1;
@@ -9,6 +9,11 @@ export class UserService {
     new User('sf', '1', 'Sally Fox'),
     new User('dv', '1', 'Darth Vadar', false)
   ];
+
+  constructor() {
+    // TEMP: give admin privileges to a user for testing
+    this.users[0].privileges.push(UserPrivilege.Admin);
+  }
 
   getUserByUserName(username: string) {
     return this.users.find(u => u.username === username);

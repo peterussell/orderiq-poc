@@ -12,6 +12,8 @@ import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { POListComponent } from './purchase-order/list/po-list.component';
 import { POCreateComponent } from './purchase-order/create/po-create.component';
+import { BudgetComponent } from './admin/budget/budget.component';
+import { SupplierComponent } from './admin/supplier/supplier.component';
 
 // Services, Guards, Routing
 import { AuthService } from './services/auth.service';
@@ -31,7 +33,9 @@ import { AppRoutingModule } from './app-routing.module';
     LoginComponent,
     HomeComponent,
     NotFoundComponent,
-    HeaderComponent
+    HeaderComponent,
+    BudgetComponent,
+    SupplierComponent
   ],
   imports: [
     BrowserModule,

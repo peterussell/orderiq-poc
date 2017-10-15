@@ -17,11 +17,11 @@ export class PurchaseOrderService {
     this.createFakePurchaseOrders()
   }
 
-  getAllPurchaseOrders(): PurchaseOrder[] {
+  getPurchaseOrders(): PurchaseOrder[] {
     return this.purchaseOrders;
   }
 
-  getPurchaseOrders(userId: number): PurchaseOrder[] {
+  getPurchaseOrdersById(userId: number): PurchaseOrder[] {
     let orders = this.purchaseOrders.filter(s => s.createdById === userId);
     return orders;
   }

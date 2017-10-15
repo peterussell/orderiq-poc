@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h4>Suppliers</h4>
+    <table class="table table-striped col-xs-12 col-lg-12">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Code</th>
+          <th class="text-right">Limit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let budget of budgets">
+          <td>{{ budget.name }}</td>
+          <td>{{ budget.code }}</td>
+          <td class="text-right">{{ budget.limit | currency:'USD':true }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h4>Suppliers</h4>
+    <table class="table table-striped col-xs-12 col-lg-12">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Contact Person</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let supplier of suppliers">
+          <td>{{ supplier.name }}</td>
+          <td>{{ supplier.address }}</td>
+          <td>{{ supplier.phone }}</td>
+          <td>{{ supplier.email }}</td>
+          <td>{{ supplier.contactPerson }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

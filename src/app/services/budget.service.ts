@@ -7,10 +7,14 @@ export class BudgetService {
     this.createFakeBudgets();
   }
 
-  getBudgetById(id: number) {
+  getBudgetById(id: number): Budget {
     return this.budgets.find(b => b.id === id);
   }
-  
+
+  getBudgets(): Budget[] {
+    return this.budgets.slice();
+  }
+
   // TEMP
   createFakeBudgets() {
     this.budgets.push(new Budget('English', 10, 4000.00));

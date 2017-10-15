@@ -23,6 +23,12 @@ export class HeaderComponent implements OnInit {
     return this.authService.isAuthenticated();
   }
 
+  isAdmin(): boolean {
+    if (!this.authService.isAuthenticated()) { return false };
+    return this.currentUser.isAdmin();
+
+  }
+
   onLogInClick() {
     this.router.navigate(['/login']);
   }
